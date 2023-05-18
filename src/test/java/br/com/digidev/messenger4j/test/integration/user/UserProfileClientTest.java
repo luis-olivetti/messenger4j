@@ -5,7 +5,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.hamcrest.Matchers.nullValue;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isNull;
@@ -23,7 +23,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author Messenger4J - http://github.com/messenger4j
+ * @author Messenger4J - <a href="http://github.com/messenger4j">...</a>
  */
 public class UserProfileClientTest {
 
@@ -32,7 +32,7 @@ public class UserProfileClientTest {
     private static final String PAGE_ACCESS_TOKEN = "PAGE_ACCESS_TOKEN";
 
     private UserProfileClient userProfileClient;
-    private MessengerHttpClient mockHttpClient = mock(MessengerHttpClient.class);
+    private final MessengerHttpClient mockHttpClient = mock(MessengerHttpClient.class);
 
     @Before
     public void beforeEach() throws Exception {

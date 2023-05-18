@@ -4,7 +4,7 @@ import static br.com.digidev.messenger4j.common.MessengerHttpClient.HttpMethod.P
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.endsWith;
@@ -38,14 +38,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author Messenger4J - http://github.com/messenger4j
+ * @author Messenger4J - <a href="http://github.com/messenger4j">...</a>
  */
 public class MessengerSendClientTest {
 
     private static final String PAGE_ACCESS_TOKEN = "PAGE_ACCESS_TOKEN";
 
     private MessengerSendClient messengerSendClient;
-    private MessengerHttpClient mockHttpClient = mock(MessengerHttpClient.class);
+    private final MessengerHttpClient mockHttpClient = mock(MessengerHttpClient.class);
 
     private final HttpResponse fakeResponse = new HttpResponse(200, "{\n" +
             "  \"recipient_id\": \"USER_ID\",\n" +

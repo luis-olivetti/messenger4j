@@ -5,7 +5,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
@@ -42,21 +42,21 @@ import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 
 /**
- * @author Messenger4J - http://github.com/messenger4j
+ * @author Messenger4J - <a href="http://github.com/messenger4j">...</a>
  */
 public class MessengerReceiveClientTest {
 
     private MessengerReceiveClientBuilder builder;
-    private AttachmentMessageEventHandler mockAttachmentMessageEventHandler = mock(AttachmentMessageEventHandler.class);
-    private OptInEventHandler mockOptInEventHandler = mock(OptInEventHandler.class);
-    private EchoMessageEventHandler mockEchoMessageEventHandler = mock(EchoMessageEventHandler.class);
-    private QuickReplyMessageEventHandler mockQuickReplyMessageEventHandler = mock(QuickReplyMessageEventHandler.class);
-    private TextMessageEventHandler mockTextMessageEventHandler = mock(TextMessageEventHandler.class);
-    private PostbackEventHandler mockPostbackEventHandler = mock(PostbackEventHandler.class);
-    private AccountLinkingEventHandler mockAccountLinkingEventHandler = mock(AccountLinkingEventHandler.class);
-    private MessageReadEventHandler mockMessageReadEventHandler = mock(MessageReadEventHandler.class);
-    private MessageDeliveredEventHandler mockMessageDeliveredEventHandler = mock(MessageDeliveredEventHandler.class);
-    private FallbackEventHandler mockFallbackEventHandler = mock(FallbackEventHandler.class);
+    private final AttachmentMessageEventHandler mockAttachmentMessageEventHandler = mock(AttachmentMessageEventHandler.class);
+    private final OptInEventHandler mockOptInEventHandler = mock(OptInEventHandler.class);
+    private final EchoMessageEventHandler mockEchoMessageEventHandler = mock(EchoMessageEventHandler.class);
+    private final QuickReplyMessageEventHandler mockQuickReplyMessageEventHandler = mock(QuickReplyMessageEventHandler.class);
+    private final TextMessageEventHandler mockTextMessageEventHandler = mock(TextMessageEventHandler.class);
+    private final PostbackEventHandler mockPostbackEventHandler = mock(PostbackEventHandler.class);
+    private final AccountLinkingEventHandler mockAccountLinkingEventHandler = mock(AccountLinkingEventHandler.class);
+    private final MessageReadEventHandler mockMessageReadEventHandler = mock(MessageReadEventHandler.class);
+    private final MessageDeliveredEventHandler mockMessageDeliveredEventHandler = mock(MessageDeliveredEventHandler.class);
+    private final FallbackEventHandler mockFallbackEventHandler = mock(FallbackEventHandler.class);
 
     @Before
     public void beforeEach() {
@@ -74,7 +74,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowExceptionIfObjectTypeIsNotPage() throws Exception {
+    public void shouldThrowExceptionIfObjectTypeIsNotPage() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"testValue\",\n" +
@@ -109,7 +109,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldHandleAttachmentMessageEvent() throws Exception {
+    public void shouldHandleAttachmentMessageEvent() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +
@@ -179,7 +179,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldHandleUnsupportedPayloadAttachmentMessageEvent() throws Exception {
+    public void shouldHandleUnsupportedPayloadAttachmentMessageEvent() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +
@@ -236,7 +236,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldHandleOptInEvent() throws Exception {
+    public void shouldHandleOptInEvent() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +
@@ -280,7 +280,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldHandleTextEchoMessageEvent() throws Exception {
+    public void shouldHandleTextEchoMessageEvent() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +
@@ -331,7 +331,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldHandleTemplateEchoMessageEvent() throws Exception {
+    public void shouldHandleTemplateEchoMessageEvent() {
         //given
         final String payload = "{\"object\":\"page\",\"entry\":[{\"id\":\"171999997131834678\",\"time\":1480120722215," +
                 "\"messaging\":[{\"sender\":{\"id\":\"17175299999834678\"},\"recipient\":{\"id\":\"1256299999730577\"}," +
@@ -375,7 +375,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldHandleQuickReplyMessageEvent() throws Exception {
+    public void shouldHandleQuickReplyMessageEvent() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +
@@ -425,7 +425,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldHandleTextMessageEvent() throws Exception {
+    public void shouldHandleTextMessageEvent() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +
@@ -471,7 +471,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldHandlePostbackEvent() throws Exception {
+    public void shouldHandlePostbackEvent() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +
@@ -515,7 +515,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldHandleAccountLinkingEventWithStatusLinked() throws Exception {
+    public void shouldHandleAccountLinkingEventWithStatusLinked() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +
@@ -561,7 +561,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldHandleAccountLinkingEventWithStatusUnlinked() throws Exception {
+    public void shouldHandleAccountLinkingEventWithStatusUnlinked() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +
@@ -606,7 +606,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldHandleMessageReadEvent() throws Exception {
+    public void shouldHandleMessageReadEvent() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +
@@ -650,7 +650,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldHandleMessageDeliveredEventWithMids() throws Exception {
+    public void shouldHandleMessageDeliveredEventWithMids() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +
@@ -697,7 +697,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldHandleMessageDeliveredEventWithoutMids() throws Exception {
+    public void shouldHandleMessageDeliveredEventWithoutMids() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +
@@ -740,7 +740,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldCallFallbackEventHandlerIfHandlerForConcreteEventIsNotRegistered() throws Exception {
+    public void shouldCallFallbackEventHandlerIfHandlerForConcreteEventIsNotRegistered() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +
@@ -786,7 +786,7 @@ public class MessengerReceiveClientTest {
     }
 
     @Test
-    public void shouldCallFallbackEventHandlerIfMessagingEventTypeIsUnsupported() throws Exception {
+    public void shouldCallFallbackEventHandlerIfMessagingEventTypeIsUnsupported() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +
@@ -830,19 +830,18 @@ public class MessengerReceiveClientTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowExceptionIfNoPayloadProvided() throws Exception {
+    public void shouldThrowExceptionIfNoPayloadProvided() {
         //given
-        final String payload = null;
         final MessengerReceiveClient messengerReceiveClient = builder.disableSignatureVerification().build();
 
         //when
-        messengerReceiveClient.processCallbackPayload(payload);
+        messengerReceiveClient.processCallbackPayload(null);
 
         //then - throw exception
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void shouldThrowExceptionIfNoSignatureProvidedAndVerificationNotDisabled() throws Exception {
+    public void shouldThrowExceptionIfNoSignatureProvidedAndVerificationNotDisabled() {
         //given
         final String payload = "{\n" +
                 "    \"object\": \"page\",\n" +

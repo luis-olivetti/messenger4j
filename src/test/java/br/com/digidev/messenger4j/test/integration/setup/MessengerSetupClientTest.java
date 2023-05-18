@@ -5,7 +5,7 @@ import static br.com.digidev.messenger4j.common.MessengerHttpClient.HttpMethod.P
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.endsWith;
@@ -41,7 +41,7 @@ public class MessengerSetupClientTest {
     private static final String PAGE_ACCESS_TOKEN = "PAGE_ACCESS_TOKEN";
 
     private MessengerSetupClient messengerSetupClient;
-    private MessengerHttpClient mockHttpClient = mock(MessengerHttpClient.class);
+    private final MessengerHttpClient mockHttpClient = mock(MessengerHttpClient.class);
 
     private final HttpResponse fakeResponse = new HttpResponse(200,
             "{\"result\": \"Successfully added new_thread's CTAs\"}");
